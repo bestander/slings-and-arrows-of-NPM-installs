@@ -10,111 +10,124 @@ import preloader from "../src/utils/preloader";
 import Interactive from "./interactive";
 
 const images = {
-  city: require("./city.jpg"),
-  kat: require("./kat.png"),
-  logo: require("./formidable-logo.svg")
+  "codeship-fail": require("./codeship-fail.png"),
+  "npm-cli-fail": require("./npm-cli-fail.png"),
+  "npm-github-fail": require("./npm-github-fail.png"),
+  "committed": require("./npm-committed.png"),
+  "committed-2": require("./npm-committed-2.png"),
+  "npm-git-lock": require("./npm-git-lock.png"),
+  "how-to-use": require("./how-to-use.png"),
 };
 
-preloader([images.city, images.kat]);
+preloader([]);
 
 export default class extends React.Component {
   render() {
     return (
       <Deck transition={["zoom", "slide"]} transitionDuration={800}>
         <Slide transition={["zoom"]} bgColor="primary">
-          <Heading size={1} fit caps textColor="black">
-            Spectacle
+          <Heading size={2} fit caps textColor="black">
+            The slings and arrows of npm installs
           </Heading>
           <Heading size={1} fit caps margin="-20px 0px">
-            A ReactJS Presentation Library
+            The tradegy of a CI ops engineer
           </Heading>
-          <Heading size={2} fit caps textColor="black">
-            Where You Can Write Your Decks In JSX
-          </Heading>
-          <Link href="https://github.com/FormidableLabs/spectacle">
-            <Text bold caps textColor="tertiary">View on Github</Text>
+          <Link  href="https://github.com/bestander/spectacle">
+            <Text margin="100px 0 0 0" textColor="black">https://github.com/bestander/spectacle</Text>
           </Link>
-          <Text textSize="1.5em" margin="20px 0px 0px" bold>Hit Your Right Arrow To Begin!</Text>
         </Slide>
-        <Slide transition={['slide']} bgColor="black" notes="You can even put notes on your slide. How awesome is that?">
-          <Image src={images.kat.replace('/','')} margin="0px auto 40px" height="293px"/>
-          <Heading size={1} fit textColor="primary" textFont="secondary">
-            Wait what?
+        <Slide transition={['slide']} bgColor="black" >
+          <Heading size={1}  textColor="primary" textFont="secondary">
+            Me
           </Heading>
-        </Slide>
-        <Slide transition={['zoom', 'fade']} bgColor="primary" notes="<ul><li>talk about that</li><li>and that</li></ul>">
-          <CodePane
-            lang="javascript"
-            source={require("raw!./deck.example")}
-            margin="20px auto"/>
-        </Slide>
-        <Slide transition={["slide"]} bgImage={images.city.replace("/", "")} bgDarken={0.75}>
-          <Appear fid="1">
-            <Heading size={1} caps fit textColor="primary">
-              Full Width
-            </Heading>
-          </Appear>
-          <Appear fid="2">
-            <Heading size={1} caps fit textColor="tertiary">
-              Adjustable Darkness
-            </Heading>
-          </Appear>
-          <Appear fid="3">
-            <Heading size={1} caps fit textColor="primary">
-              Background Imagery
-            </Heading>
-          </Appear>
-        </Slide>
-        <Slide transition={["zoom", "fade"]} bgColor="primary">
-          <Heading caps fit>Flexible Layouts</Heading>
           <Layout>
             <Fill>
-              <Heading size={4} caps textColor="secondary" bgColor="white" margin={10}>
-                Left
-              </Heading>
-            </Fill>
-            <Fill>
-              <Heading size={4} caps textColor="secondary" bgColor="white" margin={10}>
-                Right
-              </Heading>
+              <Link href="https://github.com/bestander">
+                <Text bold caps textColor="tertiary">github/bestander</Text>
+              </Link>
+              <Link href="https://twitter.com/bestander_nz">
+                <Text bold caps textColor="tertiary">twitter/bestander_nz</Text>
+              </Link>
+              <Link href="https://booktrack.com">
+                <Text bold caps textColor="tertiary">booktrack.com</Text>
+              </Link>
+              <Link href="https://medium.com/@bestander_nz/my-node-modules-are-in-git-again-4fb18f5671a">
+                <Text bold textColor="tertiary">Talk is based on a blog post</Text>
+              </Link>
             </Fill>
           </Layout>
         </Slide>
+        <Slide transition={['slide']} bgColor="black" textColor="primary">
+          <Heading size={1}  textColor="primary" textFont="secondary">
+            NPM is quite great
+          </Heading>
+          <List>
+            <ListItem><Appear fid="1">1e1000 modules</Appear></ListItem>
+            <ListItem><Appear fid="2">Developer friendly</Appear></ListItem>
+            <ListItem><Appear fid="3">Light</Appear></ListItem>
+          </List>
+        </Slide>
+        <Slide  transition={['zoom', 'fade']} bgColor="black" notes="<ul><li>talk about that</li><li>and that</li></ul>">
+          <Heading size={1}  textColor="primary" textFont="secondary">
+            The not so great part
+          </Heading>
+        </Slide>
+        <Slide transition={['zoom', 'fade']} bgColor="black" bgSize="contain" bgImage={images["codeship-fail"].replace('/','')}>
+        </Slide>
+        <Slide transition={['slide']} bgColor="black" bgSize="contain" bgImage={images["npm-cli-fail"].replace('/','')}>
+        </Slide>
+        <Slide transition={["zoom", "fade"]} bgColor="primary">
+          <Heading caps fit>Common reasons for npm install fail</Heading>
+          <List>
+            <ListItem><Appear fid="1">Loose semver compatibility introduced API break</Appear></ListItem>
+            <ListItem><Appear fid="2">Native components compilation problems</Appear></ListItem>
+            <ListItem><Appear fid="3">NPM repo availability</Appear></ListItem>
+            <ListItem><Appear fid="4">Package got removed</Appear></ListItem>
+          </List>
+        </Slide>
         <Slide transition={["slide"]} bgColor="black">
+          <Heading caps fit>Recommended way to solve this</Heading>
           <BlockQuote>
-            <Quote>Wonderfully formatted quotes</Quote>
-            <Cite>Ken Wheeler</Cite>
+            <Quote>Remove "node_modules" from .gitignore</Quote>
+            <Cite>Official recomendation by NPM and Node before 2014</Cite>
           </BlockQuote>
         </Slide>
-        <Slide transition={["slide", "spin"]} bgColor="primary">
-          <Heading caps fit size={1} textColor="tertiary">
-            Smooth
-          </Heading>
-          <Heading caps fit size={1} textColor="secondary">
-            Combinable Transitions
-          </Heading>
+        <Slide transition={["slide", "spin"]} bgColor="black">
+          <Image src={images.committed.replace('/','')} margin="0px auto 40px" height="200px"/>
+          <Image src={images["committed-2"].replace('/','')} margin="0px auto 40px" height="293px"/>
         </Slide>
-        <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
+        <Slide transition={["slide", "spin"]} bgColor="black">
+          <Heading caps fit>Recommended way to solve this</Heading>
+          <BlockQuote>
+            <Quote>Use npm-shrinkwrap</Quote>
+            <Cite>Official recomendation by NPM and Node after 2014</Cite>
+          </BlockQuote>
+        </Slide>
+        <Slide transition={["zoom", "fade"]} bgColor="primary">
           <List>
-            <ListItem><Appear fid="1">Inline style based theme system</Appear></ListItem>
-            <ListItem><Appear fid="2">Autofit text</Appear></ListItem>
-            <ListItem><Appear fid="3">Flexbox layout system</Appear></ListItem>
-            <ListItem><Appear fid="4">React-Router navigation</Appear></ListItem>
-            <ListItem><Appear fid="5">PDF export</Appear></ListItem>
-            <ListItem><Appear fid="6">And...</Appear></ListItem>
+            <ListItem><s>Loose semver compatibility introduced API break</s></ListItem>
+            <ListItem>CLI installation problems</ListItem>
+            <ListItem>NPM repo availability</ListItem>
+            <ListItem>Package got removed</ListItem>
           </List>
         </Slide>
         <Slide transition={["slide"]} bgColor="primary">
-          <Heading size={1} caps fit textColor="tertiary">
-            Your presentations are interactive
-          </Heading>
-          <Interactive/>
+          <Heading caps fit>A better way to solve it</Heading>
+          <Text bold textColor="tertiary">Use a separate GIT repo for node_modules</Text>
         </Slide>
-        <Slide transition={["spin", "slide"]} bgColor="tertiary">
-          <Heading size={1} caps fit textColor="primary">
-            Made with love in Seattle by
-          </Heading>
-          <Link href="http://www.formidablelabs.com"><Image width="100%" src={images.logo}/></Link>
+        <Slide transition={["zoom", "fade"]} bgColor="white" bgSize="contain" bgImage={images["npm-git-lock"].replace('/','')}>
+        </Slide>
+        <Slide transition={["zoom", "fade"]} bgColor="white" bgPosition="0% 0%" bgSize="cover" bgImage={images["how-to-use"].replace('/','')}>
+        </Slide>
+        <Slide transition={["slide"]} bgColor="primary">
+          <Heading>Thank you!</Heading>
+          <Link href="https://medium.com/@bestander_nz/my-node-modules-are-in-git-again-4fb18f5671a">
+            <Text bold textColor="tertiary">Read a blog post</Text>
+          </Link>
+          <Link href="https://github.com/bestander/npm-git-lock">
+            <Text bold caps textColor="tertiary">https://github.com/bestander/npm-git-lock</Text>
+          </Link>
+
         </Slide>
       </Deck>
     );

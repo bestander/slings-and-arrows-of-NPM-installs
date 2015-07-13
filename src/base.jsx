@@ -60,8 +60,9 @@ const getStyles = function getStyles() {
     } else {
       styles.backgroundImage = "url(" + this.props.bgImage + ")";
     }
-    styles.backgroundSize = "cover";
-    styles.backgroundPosition = "center center";
+    styles.backgroundSize = this.props.bgSize || "cover";
+    styles.backgroundRepeat = "no-repeat";
+    styles.backgroundPosition = this.props.bgPosition || "center center";
   }
   return styles;
 };
