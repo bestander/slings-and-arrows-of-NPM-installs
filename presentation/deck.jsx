@@ -19,7 +19,7 @@ const images = {
   "how-to-use": require("./how-to-use.png"),
 };
 
-preloader([]);
+preloader(Object.keys(images).map((key) => images[key]));
 
 export default class extends React.Component {
   render() {
@@ -33,7 +33,7 @@ export default class extends React.Component {
             The tradegy of a CI ops engineer
           </Heading>
           <Link  href="https://github.com/bestander/spectacle">
-            <Text margin="100px 0 0 0" textColor="black">https://github.com/bestander/spectacle</Text>
+            <Text margin="100px 0 0 0" textColor="black">Slides source: https://github.com/bestander/spectacle</Text>
           </Link>
         </Slide>
         <Slide transition={['slide']} bgColor="black" >
@@ -115,9 +115,9 @@ export default class extends React.Component {
           <Heading caps fit>A better way to solve it</Heading>
           <Text bold textColor="tertiary">Use a separate GIT repo for node_modules</Text>
         </Slide>
-        <Slide transition={["zoom", "fade"]} bgColor="white" bgSize="contain" bgImage={images["npm-git-lock"].replace('/','')}>
+        <Slide transition={["zoom"]} bgColor="white" bgSize="contain" bgImage={images["npm-git-lock"].replace('/','')}>
         </Slide>
-        <Slide transition={["zoom", "fade"]} bgColor="white" bgPosition="0% 0%" bgSize="cover" bgImage={images["how-to-use"].replace('/','')}>
+        <Slide transition={["fade"]} bgColor="white" bgPosition="0% 0%" bgSize="cover" bgImage={images["how-to-use"].replace('/','')}>
         </Slide>
         <Slide transition={["slide"]} bgColor="primary">
           <Heading>Thank you!</Heading>
@@ -126,6 +126,9 @@ export default class extends React.Component {
           </Link>
           <Link href="https://github.com/bestander/npm-git-lock">
             <Text bold caps textColor="tertiary">https://github.com/bestander/npm-git-lock</Text>
+          </Link>
+          <Link href="https://github.com/bestander/spectacle">
+            <Text textColor="tertiary">Slides source code: https://github.com/bestander/spectacle</Text>
           </Link>
 
         </Slide>

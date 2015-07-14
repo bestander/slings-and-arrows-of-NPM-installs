@@ -1,5 +1,10 @@
-#Spectacle
-ReactJS based Presentation Library
+#The slings and arrows of NPM installs
+
+These slides:
+
+1. Were prepared for a [lightning talk](http://www.meetup.com/AucklandJS/events/222538832/?a=uc1_te&_af=event&_af_eid=222538832)
+2. Deployed to [http://axiomatic-unit.surge.sh](http://axiomatic-unit.surge.sh) using npm script  
+3. Based on the amazing [ReactJS based Presentation Library](https://github.com/FormidableLabs/spectacle)  
 
 ##Getting Started
 
