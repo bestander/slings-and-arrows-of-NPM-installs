@@ -17,6 +17,9 @@ const images = {
   "committed-2": require("./npm-committed-2.png"),
   "npm-git-lock": require("./npm-git-lock.png"),
   "how-to-use": require("./how-to-use.png"),
+  "olivier": require("./olivier.jpg"),
+  "lawrence": require("./lawrence.jpg"),
+  "arnold": require("./arnold.jpg"),
 };
 
 preloader(Object.keys(images).map((key) => images[key]));
@@ -25,15 +28,15 @@ export default class extends React.Component {
   render() {
     return (
       <Deck transition={["zoom", "slide"]} transitionDuration={800}>
-        <Slide transition={["zoom"]} bgColor="primary">
-          <Heading size={2} fit caps textColor="black">
+        <Slide bgImage={images["olivier"].replace('/','')} transition={["zoom"]} bgColor="primary">
+          <Heading size={2} fit caps textColor="white">
             The slings and arrows of npm installs
           </Heading>
           <Heading size={1} fit caps margin="-20px 0px">
             The tradegy of a CI ops engineer
           </Heading>
           <Link  href="https://github.com/bestander/spectacle">
-            <Text margin="100px 0 0 0" textColor="black">Slides source: https://github.com/bestander/spectacle</Text>
+            <Text margin="100px 0 0 0" textColor="white">Slides source: https://github.com/bestander/spectacle</Text>
           </Link>
         </Slide>
         <Slide transition={['slide']} bgColor="black" >
@@ -57,7 +60,7 @@ export default class extends React.Component {
             </Fill>
           </Layout>
         </Slide>
-        <Slide transition={['slide']} bgColor="black" textColor="primary">
+        <Slide bgImage={images["lawrence"].replace('/','')} bgDarken="0.5" transition={['']} textColor="primary">
           <Heading size={1}  textColor="primary" textFont="secondary">
             NPM is quite great
           </Heading>
@@ -79,7 +82,7 @@ export default class extends React.Component {
         <Slide transition={["zoom", "fade"]} bgColor="primary">
           <Heading caps fit>Common reasons for npm install fail</Heading>
           <List>
-            <ListItem><Appear fid="1">Loose semver compatibility introduced API break</Appear></ListItem>
+            <ListItem><Appear fid="1">API break in dependency tree (loose semver)</Appear></ListItem>
             <ListItem><Appear fid="2">Native components compilation problems</Appear></ListItem>
             <ListItem><Appear fid="3">NPM repo availability</Appear></ListItem>
             <ListItem><Appear fid="4">Package got removed</Appear></ListItem>
@@ -105,13 +108,13 @@ export default class extends React.Component {
         </Slide>
         <Slide transition={["zoom", "fade"]} bgColor="primary">
           <List>
-            <ListItem><s>Loose semver compatibility introduced API break</s></ListItem>
+            <ListItem><s>API break in dependency tree (loose semver)</s></ListItem>
             <ListItem>CLI installation problems</ListItem>
             <ListItem>NPM repo availability</ListItem>
             <ListItem>Package got removed</ListItem>
           </List>
         </Slide>
-        <Slide transition={["slide"]} bgColor="primary">
+        <Slide bgImage={images["arnold"].replace('/','')} transition={["slide"]} bgColor="primary">
           <Heading caps fit>A better way to solve it</Heading>
           <Text bold textColor="tertiary">Use a separate GIT repo for node_modules</Text>
         </Slide>
